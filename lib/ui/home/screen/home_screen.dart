@@ -8,6 +8,7 @@ import 'package:islami_c16/ui/home/widgets/tabs/QuranTab/QuranTab.dart';
 import 'package:islami_c16/ui/home/widgets/tabs/RadioTab/RadioTab.dart';
 import 'package:islami_c16/ui/home/widgets/tabs/SebhaTab/SebhaTab.dart';
 import 'package:islami_c16/ui/home/widgets/tabs/TimeTab/TimeTab.dart';
+import 'package:islami_c16/ui/sebha/sebha_screen.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     QuranTab(),
     HadethTab(),
-    SebhaTab(),
+    SebhaScreen(),
     RadioTab(),
     TimeTab()
   ];

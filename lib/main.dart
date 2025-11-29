@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_c16/core/resources/ColorManager.dart';
 import 'package:islami_c16/core/resources/RoutesManager.dart';
 import 'package:islami_c16/ui/home/screen/home_screen.dart';
+import 'package:islami_c16/ui/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,9 +28,10 @@ class MyApp extends StatelessWidget {
         )
       ),
       routes: {
-        RoutesManager.homeRoute:(context) => HomeScreen()
+        RoutesManager.homeRoute:(context) => HomeScreen(),
+        RoutesManager.onboardingRoute:(context) => OnboardingScreen()
       },
-      initialRoute:RoutesManager.homeRoute ,
+      initialRoute:RoutesManager.onboardingRoute ,
     );
   }
 }
