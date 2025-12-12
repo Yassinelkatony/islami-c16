@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_c16/core/resources/DhikrModel.dart';
+import 'package:islami_c16/core/resources/azkarModel.dart';
 import 'package:islami_c16/core/resources/ColorManager.dart';
 import 'package:islami_c16/core/resources/AssetsManager.dart';
 import 'dart:math' as math;
@@ -16,13 +16,22 @@ class _SebhaScreenState extends State<SebhaScreen> {
   int _dhikrIndex = 0;
   double _rotationAngle = 0.0;
 
-  void _incrementCounter() {
+  void _onSebhaTap() {
     setState(() {
-      _counter++;
-      _rotationAngle += 2 * math.pi / 33;
-      if (_counter == 33) {
-        _counter = 0;
-        _dhikrIndex = (_dhikrIndex + 1) % dhikrsList.length;
+      const step = (2 * math.pi) / 33;
+      _rotationAngle = _rotationAngle + step;
+
+      if (_counter < 32) {
+        _counter = _counter + 1;
+        return;
+      }
+
+      _counter = 0;
+
+      if (_dhikrIndex >= azkarList.length - 1) {
+        _dhikrIndex = 0;
+      } else {
+        _dhikrIndex = _dhikrIndex + 1;
       }
     });
   }
@@ -49,20 +58,19 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   ),
                 ),
                 SizedBox(height: 60),
-
                 Text(
-                  dhikrsList[_dhikrIndex].mainText,
+                  azkarList[_dhikrIndex].mainText,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: ColorManager.whiteColor,
+                    color: ColorManager.whiteColor,
                     fontSize: 36,
                     fontWeight: FontWeight.w700,
-                      ),
+                  ),
                 ),
                 SizedBox(height: 50),
                 GestureDetector(
-                  onTap: _incrementCounter,
-                  child: Container(
+                  onTap: _onSebhaTap,
+                  child: SizedBox(
                     height: 500,
                     width: 480,
                     child: Stack(
@@ -92,12 +100,12 @@ class _SebhaScreenState extends State<SebhaScreen> {
                         Positioned(
                           top: 200,
                           child: Text(
-                            dhikrsList[_dhikrIndex].tasbeehText,
+                            azkarList[_dhikrIndex].tasbeehText,
                             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                  color: ColorManager.whiteColor,
-                                  fontSize: 36,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                              color: ColorManager.whiteColor,
+                              fontSize: 36,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                         Positioned(
@@ -110,10 +118,10 @@ class _SebhaScreenState extends State<SebhaScreen> {
                             child: Text(
                               '$_counter',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                    color: ColorManager.whiteColor,
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                color: ColorManager.whiteColor,
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),
@@ -121,9 +129,6 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     ),
                   ),
                 ),
-
-
-
               ],
             ),
           ),

@@ -1,27 +1,27 @@
-class DhikrModel {
+class Azkar {
   final String mainText;
-
   final String tasbeehText;
 
-  DhikrModel({required this.mainText, required this.tasbeehText});
+  Azkar({required this.mainText, required this.tasbeehText});
 
   @override
   String toString() {
-    return 'DhikrModel(mainText: $mainText, tasbeehText: $tasbeehText)';
+    return 'Azkar(mainText: $mainText, tasbeehText: $tasbeehText)';
   }
 }
 
-List<DhikrModel> dhikrsList = [
-  DhikrModel(
+List<Azkar> azkarList = [
+  Azkar(
     mainText: 'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
     tasbeehText: 'سبحان الله',
   ),
-  DhikrModel(
+  Azkar(
     mainText: 'احمد الله واستغفر الله',
     tasbeehText: 'الحمد لله',
   ),
-  DhikrModel(
+  Azkar(
     mainText: 'احمد الله واستغفر الله',
     tasbeehText: 'أستغفر الله',
   ),
 ];
+

@@ -29,7 +29,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Image.asset(
             AssetsManager.islamiLogo,
             height: 100,
-          ), // Top logo
+          ),
           Expanded(
             child: PageView.builder(
               controller: _pageController,
@@ -104,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                   ),
                 )
-              : SizedBox(width: 70), // Placeholder to maintain alignment
+              : SizedBox(width: 70),
           Row(
             children: List.generate(
               onboardingPages.length,
@@ -139,8 +139,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 )
               : TextButton(
                   onPressed: () {
-                    // Handle finish onboarding
-                    // print('Finished Onboarding');
                     Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
                   },
                   child: Text(
